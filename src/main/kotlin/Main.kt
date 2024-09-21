@@ -89,19 +89,28 @@ private fun typicalTable(inputWord: String):String {
     }
 
     var str = 0
-    for (i in array) {
+    var str1 = 0
+    var str2 = 0
+          for (i in array) {
+              str1 = 0
+              str2 = 0
         for(j in cryptTable) {
             str = j.indexOf(i)
+            str1 += 1
             if(str != -1) {
+                str2 = str1
                 str = cryptTable.indexOf(j)
                 break
             }
         }
-        resulty += "$str "
+        resulty += "${str.toInt()} ${str2.toInt()} "
     }
 
+    //доделать
+
     return resulty
-}
+}//создаёт статичный массив уникальных чисел
+ //принимает ключи букв и шифрует их по таблице
 
 private fun randomTable(inputWord: String): String {
     var cryptTable = arrayOf<Array<String>>()
@@ -148,7 +157,8 @@ private fun randomTable(inputWord: String): String {
         }
     }
     return resulty
-}
+}//создаёт случайным массив уникальных чисел
+ //принимает ключи букв и шифрует их по таблице
 
 private fun generateArray(inputWord: String): Array<Int> {
     val bukvi = mapOf(0 to 'А', 1 to 'Б', 2 to 'В', 3 to 'Г', 4 to 'Д', 5 to 'Е', 6 to 'Ж', 7 to 'З',
@@ -163,11 +173,12 @@ private fun generateArray(inputWord: String): Array<Int> {
         result += cKey
     }
     return result
-}
+}//возвращает ключи символов из мапа(почти шифратор)
 
 private fun generateString(inputEncryptedWord: Array<Int>) {
     val bukvi = mapOf(0 to 'А', 1 to 'Б', 2 to 'В', 3 to 'Г', 4 to 'Д', 5 to 'Е', 6 to 'Ж', 7 to 'З',
         8 to 'И', 9 to 'К', 10 to 'Л', 11 to 'М', 12 to 'Н', 13 to 'О', 14 to 'П', 15 to 'Р', 16 to 'С',
         17 to 'Т', 18 to 'У', 19 to 'Ф', 20 to 'Х', 21 to 'Ц', 22 to 'Ч', 23 to 'Ш', 24 to 'Щ', 25 to 'Ъ', 26 to 'Ы',
         27 to 'Ь', 28 to 'Э', 29 to 'Ю', 30 to 'Я')
-}
+
+} //функция перевода целочисленного массива по ключам(дешифратор)
