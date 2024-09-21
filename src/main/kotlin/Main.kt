@@ -103,7 +103,7 @@ private fun typicalTable(inputWord: String):String {
                 break
             }
         }
-        resulty += "${str.toInt()} ${str2.toInt()} "
+        resulty += "$str $str2 "
     }
 
     //доделать
